@@ -1,0 +1,2 @@
+# detectionEngineeringPortfolio
+Detection engineering practice
