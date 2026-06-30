@@ -33,7 +33,7 @@ Added that to my search and traded out the sourcetype for "steam:http"
 Now that we're here we also should see the names of all the sites so this is where we would also add in "| table site | dedup site" at the end of our search
 This is where I got stuck because the site I found this on didn't really help in what I should be looking for  
 So I search for the initial BOSS challenge and found this  
-<img width="390" height="287" alt="image" src="https://github.com/user-attachments/assets/3343f579-e4d6-4c93-96e7-b66b050b5c9c" />
+<img width="390" height="287" alt="image" src="https://github.com/user-attachments/assets/3343f579-e4d6-4c93-96e7-b66b050b5c9c" />  
 Still didn't help a ton because I added \*brew\* to my search and came up empty  
 So, I just manually went through the data, as the total account was only 191 results  
 I then found www.berkbeer.com, which in hindsight, "beer" would have been a good search term. Oh well.  
