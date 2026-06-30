@@ -7,7 +7,7 @@ What ran on the machine? → Sysmon
 What did Windows record? → WinEventLog  
 Did the network notice anything? → Suricata  
 
-| I want to find... [2] | First place to look | Splunk sourcetype |
+| I want to find | First place to look | Splunk sourcetype |
 |---|---|---|
 | Person → IP address | Firewall (user-ID mapping) or VPN logs | pan:traffic, vpn, fgt_traffic |
 | IP → websites visited | Web proxy or firewall outbound | stream:http, pan:traffic |
@@ -80,6 +80,33 @@ So the answer is ambersthebest@yeastiebeastie.com
 That's it for the 100 series questions  
 On to the 200!  
 
+Q201: What version of TOR Browser did Amber install to obfuscate her web browsing? Answer guidance: Numeric with one or more delimiter.  
+Since there was an install that occurred, my first instinct was to try  
+index="botsv2" sourcetype="osquery_results" amber  
+That came up with basically one result about a yeast.png so that wasn't very helpful.  
+I then turned to xmlwineventlog since something happened to the disk and included amber and tor to the search  
+index="botsv2" Amber sourcetype=xmlwineventlog install  
+One result came up that said C:\Users\amber.turing\Downloads\torbrowser-install-7.0.4_en-US.exe  
+So, we can assume it was version 7.0.4
+
+Q202: What is the public IPv4 address of the server running www.brewertalk.com?  
+This is a public IP so we know to search for sourcetype="stream:http" and site = "www.brewertalk.com", let's try that  
+index="botsv2" sourcetype="stream:http" site=www.brewertalk.com  
+We know to look for the dest_ip and there are luckily just 2 results  
+172.31.4.249 and 52.42.208.228  
+Private ips fall within this range, so the other one must be the public one  
+<img width=  "805" height="272" alt="image" src="https://github.com/user-attachments/assets/b2efa869-dfc0-4261-9a74-ee3338b380c1" /> 
+52.42.208.228 
+
+Q203: Provide the IP address of the system used to run a web vulnerability scan against www.brewertalk.com.  
+For this one, I just worked with what we had. The website name and the word scan. Low and behold it returned two records one source ip  
+index="botsv2" site=www.brewertalk.com scan  
+45.77.65.211  
+
+Q204: The IP address from Q#3 is also being used by a likely different piece of software to attack a URI path. What is the URI path?  
+We know the ip address before so let's see what we get by trying to find the top uri_path  
+index="botsv2" 45.77.65.211 | top uri_path  
+/member.php is by far the leading uri_path so it's likely under attack  
 
 
 
