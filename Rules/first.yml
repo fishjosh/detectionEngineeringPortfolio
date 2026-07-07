@@ -1,0 +1,37 @@
+title: Detect_Suspicious_Backup_Deletion_Via_Vssadmin
+id: 9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d # Generate a unique UUID v4 for every rule
+status: experimental # experimental, test, stable
+description: Catches attempts to delete volume shadow copies using vssadmin.exe, a common ransomware technique.
+references:
+  - https://attack.mitre.org/techniques/T1490/
+author: Joshua Fishman
+date: 2026-07-07
+modified: 2026-07-07
+tags:
+  - attack.impact
+  - attack.t1490
+logsource:
+  product: windows
+  category: process_creation # Tells the SIEM to look at EDR/Event ID 4688 logs
+detection:
+  # Selection 1: Looking for the specific executable
+  selection_img:
+    Image|endswith: '\vssadmin.exe'
+    OriginalFileName: "VSSADMIN.EXE"
+
+  # Selection 2: Looking for the specific command-line arguments
+  selection_cli:
+    CommandLine|contains|all:
+      - "delete"
+      - "shadows"
+
+  # Selection 3: An alternative way an attacker might write it
+  selection_alt:
+    CommandLine|contains: "resize shadowstorage"
+
+  # The logical condition matching your selections above
+  condition: (selection_img and selection_cli) or selection_alt
+falsepositives:
+  - Legitimate backup software orchestration scripts.
+  - System administrators performing manual maintenance.
+level: high # informational, low, medium, high, critical
