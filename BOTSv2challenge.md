@@ -1,4 +1,4 @@
-# Working through BOSS challenges and my process to work through it
+# Working through BOTS v2 challenge and my process to work through it
 
 For quick reference, I'm trying to keep the following in mind as I learn:  
 Who? → Firewall/VPN (ties identity to IP)  
