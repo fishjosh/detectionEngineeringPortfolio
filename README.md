@@ -7,6 +7,10 @@ moved into writing and validating my own Sigma detection rules against real EVTX
 (sbousseaden's [EVTX-ATTACK-SAMPLES](https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES)) 
 and Atomic Red Team executions in a local VM lab.  
 
+### Current focus
+Building out a second Sigma rule to catch LSASS dump-file creation (Sysmon EventID 11) 
+to complement the existing GrantedAccess-mask rule and building out my detections for MITRE Technique T1003.001.
+
 | SIEM & Query | Splunk SPL, KQL, ELK/Elastic |
 | Detection Frameworks | MITRE ATT&CK, Sigma |
 | Detection Testing/Validation | Zircolite, Chainsaw, pySigma/sigma-cli |
