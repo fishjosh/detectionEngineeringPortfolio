@@ -1,0 +1,39 @@
+title: LSASS Granted Access Mask
+id: 779bfa8e-27d7-46ac-8562-965d74d079d1
+status: experimental # experimental, test, stable
+description: Detects attempts to access the LSASS process and create credential dumps through well-known methods as well as suspicious access masks.
+references:
+  - https://attack.mitre.org/techniques/T1003/001/
+author: Joshua Fishman
+date: 2026-08-14
+modified: 2026-08-14
+tags:
+  - attack.credential-access
+  - attack.t1003.001
+logsource:
+  product: windows
+  service: sysmon
+  category: process_access
+detection:
+  Selection1:
+    eventID: 10
+    TargetImage|endswith: '\lsass.exe'
+    #I recognize this a a specific set of exact mask values instead of bit masking or substring matching. Will look into that for version 2.
+    GrantedAccess:
+      - 0x1fffff
+      - 0x1010
+      - 0x1410
+      - 0x120089
+  Selection2:
+    eventID: 10
+    TargetImage|endswith: '\lsass.exe'
+    SourceImage|endswith:
+      - \procdump.exe
+      - \mimikatz.exe
+      - \rundll32.exe
+  condition: Selection1 or Selection2
+falsepositives:
+  - crash analysis or performance debugging
+  - Security agents diagnosing processes
+  - Access from SentinelOne, CrowdStrike, or other EDR agents and/or LOLbins
+level: high # informational, low, medium, high, critical
