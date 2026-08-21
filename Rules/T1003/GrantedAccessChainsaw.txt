@@ -1,0 +1,198 @@
+
+ ██████╗██╗  ██╗ █████╗ ██╗███╗   ██╗███████╗ █████╗ ██╗    ██╗
+██╔════╝██║  ██║██╔══██╗██║████╗  ██║██╔════╝██╔══██╗██║    ██║
+██║     ███████║███████║██║██╔██╗ ██║███████╗███████║██║ █╗ ██║
+██║     ██╔══██║██╔══██║██║██║╚██╗██║╚════██║██╔══██║██║███╗██║
+╚██████╗██║  ██║██║  ██║██║██║ ╚████║███████║██║  ██║╚███╔███╔╝
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝ ╚══╝╚══╝
+    By WithSecure Countercept (@FranticTyping, @AlexKornitzer)
+
+[+] Loading detection rules from: proc_access_win_lsass_grantedaccess.yml
+[+] Loaded 1 detection rules
+[+] Loading forensic artefacts from: sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx (extensions: .evt, .evtx)
+[+] Loaded 1 forensic artefacts (68.0 KiB)
+[+] Current Artifact: sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx                                      [+] Hunting [========================================] 1/1 - [00:00:00]
+[+] Group: Sigma
+┌─────────────────────┬────────────────────────┬───────┬───────────────────────┬──────────┬───────────┬──────────────────────┬──────────────────────────────────┐
+│      timestamp      │       detections       │ count │ Event.System.Provider │ Event ID │ Record ID │       Computer       │            Event Data            │
+├─────────────────────┼────────────────────────┼───────┼───────────────────────┼──────────┼───────────┼──────────────────────┼──────────────────────────────────┤
+│ 2019-06-21 07:35:50 │ + LSASS Granted Access │ 1     │ Microsoft-Windows-Sy  │ 10       │ 238379    │ alice.insecurebank.l │ TargetProcessId: 520             │
+│                     │ Mask                   │       │ smon                  │          │           │ ocal                 │ TargetImage: C:\Wind             │
+│                     │                        │       │                       │          │           │                      │ ows\system32\lsass.e             │
+│                     │                        │       │                       │          │           │                      │ xe                               │
+│                     │                        │       │                       │          │           │                      │ SourceThreadId: 3808             │
+│                     │                        │       │                       │          │           │                      │ RuleName: ''                     │
+│                     │                        │       │                       │          │           │                      │ GrantedAccess: '0x1f             │
+│                     │                        │       │                       │          │           │                      │ ffff'                            │
+│                     │                        │       │                       │          │           │                      │ SourceProcessGUID: E             │
+│                     │                        │       │                       │          │           │                      │ CAD0485-88D6-5D0C-00             │
+│                     │                        │       │                       │          │           │                      │ 00-001007AA1D00                  │
+│                     │                        │       │                       │          │           │                      │ SourceProcessId: 156             │
+│                     │                        │       │                       │          │           │                      │ 8                                │
+│                     │                        │       │                       │          │           │                      │ TargetProcessGUID: E             │
+│                     │                        │       │                       │          │           │                      │ CAD0485-822F-5D0C-00             │
+│                     │                        │       │                       │          │           │                      │ 00-0010635E0000                  │
+│                     │                        │       │                       │          │           │                      │ CallTrace: C:\Users\             │
+│                     │                        │       │                       │          │           │                      │ administrator\Deskto             │
+│                     │                        │       │                       │          │           │                      │ p\x64\Outflank-Dumpe             │
+│                     │                        │       │                       │          │           │                      │ rt-DLL.dll+12d1a|C:\             │
+│                     │                        │       │                       │          │           │                      │ Users\administrator\             │
+│                     │                        │       │                       │          │           │                      │ Desktop\x64\Outflank             │
+│                     │                        │       │                       │          │           │                      │ -Dumpert-DLL.dll+11c             │
+│                     │                        │       │                       │          │           │                      │ 1f|C:\Users\administ             │
+│                     │                        │       │                       │          │           │                      │ rator\Desktop\x64\Ou             │
+│                     │                        │       │                       │          │           │                      │ tflank-Dumpert-DLL.d             │
+│                     │                        │       │                       │          │           │                      │ ll+1187b|C:\Users\ad             │
+│                     │                        │       │                       │          │           │                      │ ministrator\Desktop\             │
+│                     │                        │       │                       │          │           │                      │ x64\Outflank-Dumpert             │
+│                     │                        │       │                       │          │           │                      │ -DLL.dll+136f8|C:\Us             │
+│                     │                        │       │                       │          │           │                      │ ers\administrator\De             │
+│                     │                        │       │                       │          │           │                      │ sktop\x64\Outflank-D             │
+│                     │                        │       │                       │          │           │                      │ umpert-DLL.dll+138d1             │
+│                     │                        │       │                       │          │           │                      │ |C:\Windows\SYSTEM32             │
+│                     │                        │       │                       │          │           │                      │ \ntdll.dll+1c114|C:\             │
+│                     │                        │       │                       │          │           │                      │ Windows\SYSTEM32\ntd             │
+│                     │                        │       │                       │          │           │                      │ ll.dll+1b88e|C:\Wind             │
+│                     │                        │       │                       │          │           │                      │ ows\SYSTEM32\ntdll.d             │
+│                     │                        │       │                       │          │           │                      │ ll+1b684|C:\Windows\             │
+│                     │                        │       │                       │          │           │                      │ SYSTEM32\ntdl...                 │
+│                     │                        │       │                       │          │           │                      │ (use --full to show all content) │
+│                     │                        │       │                       │          │           │                      │ UtcTime: 2019-06-21              │
+│                     │                        │       │                       │          │           │                      │ 07:35:50.254                     │
+│                     │                        │       │                       │          │           │                      │ SourceImage: C:\Wind             │
+│                     │                        │       │                       │          │           │                      │ ows\system32\rundll3             │
+│                     │                        │       │                       │          │           │                      │ 2.exe                            │
+├─────────────────────┼────────────────────────┼───────┼───────────────────────┼──────────┼───────────┼──────────────────────┼──────────────────────────────────┤
+│ 2019-06-21 07:35:50 │ + LSASS Granted Access │ 1     │ Microsoft-Windows-Sy  │ 10       │ 238381    │ alice.insecurebank.l │ TargetProcessId: 520             │
+│                     │ Mask                   │       │ smon                  │          │           │ ocal                 │ TargetImage: C:\Wind             │
+│                     │                        │       │                       │          │           │                      │ ows\system32\lsass.e             │
+│                     │                        │       │                       │          │           │                      │ xe                               │
+│                     │                        │       │                       │          │           │                      │ SourceThreadId: 3808             │
+│                     │                        │       │                       │          │           │                      │ RuleName: ''                     │
+│                     │                        │       │                       │          │           │                      │ GrantedAccess: '0x1f             │
+│                     │                        │       │                       │          │           │                      │ ffff'                            │
+│                     │                        │       │                       │          │           │                      │ SourceProcessGUID: E             │
+│                     │                        │       │                       │          │           │                      │ CAD0485-88D6-5D0C-00             │
+│                     │                        │       │                       │          │           │                      │ 00-001007AA1D00                  │
+│                     │                        │       │                       │          │           │                      │ SourceProcessId: 156             │
+│                     │                        │       │                       │          │           │                      │ 8                                │
+│                     │                        │       │                       │          │           │                      │ TargetProcessGUID: E             │
+│                     │                        │       │                       │          │           │                      │ CAD0485-822F-5D0C-00             │
+│                     │                        │       │                       │          │           │                      │ 00-0010635E0000                  │
+│                     │                        │       │                       │          │           │                      │ CallTrace: C:\Window             │
+│                     │                        │       │                       │          │           │                      │ s\SYSTEM32\ntdll.dll             │
+│                     │                        │       │                       │          │           │                      │ +909ba|C:\Windows\sy             │
+│                     │                        │       │                       │          │           │                      │ stem32\ctiuser.dll+1             │
+│                     │                        │       │                       │          │           │                      │ b132|C:\Windows\SYST             │
+│                     │                        │       │                       │          │           │                      │ EM32\ntdll.dll+80498             │
+│                     │                        │       │                       │          │           │                      │ |C:\Windows\system32             │
+│                     │                        │       │                       │          │           │                      │ \KERNEL32.DLL+1e1d4|             │
+│                     │                        │       │                       │          │           │                      │ C:\Windows\system32\             │
+│                     │                        │       │                       │          │           │                      │ KERNEL32.DLL+1dc17|C             │
+│                     │                        │       │                       │          │           │                      │ :\Windows\system32\c             │
+│                     │                        │       │                       │          │           │                      │ tiuser.dll+141be|C:\             │
+│                     │                        │       │                       │          │           │                      │ Windows\SYSTEM32\dbg             │
+│                     │                        │       │                       │          │           │                      │ help.dll+1244d8|C:\W             │
+│                     │                        │       │                       │          │           │                      │ indows\SYSTEM32\dbgh             │
+│                     │                        │       │                       │          │           │                      │ elp.dll+11ebd5|C:\Wi             │
+│                     │                        │       │                       │          │           │                      │ ndows\SYSTEM32\dbghe             │
+│                     │                        │       │                       │          │           │                      │ lp.dll+118402|C:\Win             │
+│                     │                        │       │                       │          │           │                      │ dows\SYSTEM32\dbghel             │
+│                     │                        │       │                       │          │           │                      │ p.dll+1137e2|C:\Wind             │
+│                     │                        │       │                       │          │           │                      │ ows\SYSTEM32\dbghelp             │
+│                     │                        │       │                       │          │           │                      │ .dll+113c84|C:\Windo             │
+│                     │                        │       │                       │          │           │                      │ ws\system32\ctiuser.             │
+│                     │                        │       │                       │          │           │                      │ dll+22232|C:\...                 │
+│                     │                        │       │                       │          │           │                      │ (use --full to show all content) │
+│                     │                        │       │                       │          │           │                      │ UtcTime: 2019-06-21              │
+│                     │                        │       │                       │          │           │                      │ 07:35:50.263                     │
+│                     │                        │       │                       │          │           │                      │ SourceImage: C:\Wind             │
+│                     │                        │       │                       │          │           │                      │ ows\system32\rundll3             │
+│                     │                        │       │                       │          │           │                      │ 2.exe                            │
+├─────────────────────┼────────────────────────┼───────┼───────────────────────┼──────────┼───────────┼──────────────────────┼──────────────────────────────────┤
+│ 2019-06-21 07:35:50 │ + LSASS Granted Access │ 1     │ Microsoft-Windows-Sy  │ 10       │ 238382    │ alice.insecurebank.l │ TargetProcessId: 520             │
+│                     │ Mask                   │       │ smon                  │          │           │ ocal                 │ TargetImage: C:\Wind             │
+│                     │                        │       │                       │          │           │                      │ ows\system32\lsass.e             │
+│                     │                        │       │                       │          │           │                      │ xe                               │
+│                     │                        │       │                       │          │           │                      │ SourceThreadId: 3808             │
+│                     │                        │       │                       │          │           │                      │ RuleName: ''                     │
+│                     │                        │       │                       │          │           │                      │ GrantedAccess: '0x1f             │
+│                     │                        │       │                       │          │           │                      │ ffff'                            │
+│                     │                        │       │                       │          │           │                      │ SourceProcessGUID: E             │
+│                     │                        │       │                       │          │           │                      │ CAD0485-88D6-5D0C-00             │
+│                     │                        │       │                       │          │           │                      │ 00-001007AA1D00                  │
+│                     │                        │       │                       │          │           │                      │ SourceProcessId: 156             │
+│                     │                        │       │                       │          │           │                      │ 8                                │
+│                     │                        │       │                       │          │           │                      │ TargetProcessGUID: E             │
+│                     │                        │       │                       │          │           │                      │ CAD0485-822F-5D0C-00             │
+│                     │                        │       │                       │          │           │                      │ 00-0010635E0000                  │
+│                     │                        │       │                       │          │           │                      │ CallTrace: C:\Users\             │
+│                     │                        │       │                       │          │           │                      │ administrator\Deskto             │
+│                     │                        │       │                       │          │           │                      │ p\x64\Outflank-Dumpe             │
+│                     │                        │       │                       │          │           │                      │ rt-DLL.dll+12d1a|C:\             │
+│                     │                        │       │                       │          │           │                      │ Users\administrator\             │
+│                     │                        │       │                       │          │           │                      │ Desktop\x64\Outflank             │
+│                     │                        │       │                       │          │           │                      │ -Dumpert-DLL.dll+11c             │
+│                     │                        │       │                       │          │           │                      │ 1f|C:\Windows\system             │
+│                     │                        │       │                       │          │           │                      │ 32\rundll32.exe+2709             │
+│                     │                        │       │                       │          │           │                      │ |C:\Windows\system32             │
+│                     │                        │       │                       │          │           │                      │ \rundll32.exe+44c4|C             │
+│                     │                        │       │                       │          │           │                      │ :\Windows\system32\K             │
+│                     │                        │       │                       │          │           │                      │ ERNEL32.DLL+13d2|C:\             │
+│                     │                        │       │                       │          │           │                      │ Windows\SYSTEM32\ntd             │
+│                     │                        │       │                       │          │           │                      │ ll.dll+154f4                     │
+│                     │                        │       │                       │          │           │                      │ UtcTime: 2019-06-21              │
+│                     │                        │       │                       │          │           │                      │ 07:35:50.724                     │
+│                     │                        │       │                       │          │           │                      │ SourceImage: C:\Wind             │
+│                     │                        │       │                       │          │           │                      │ ows\system32\rundll3             │
+│                     │                        │       │                       │          │           │                      │ 2.exe                            │
+├─────────────────────┼────────────────────────┼───────┼───────────────────────┼──────────┼───────────┼──────────────────────┼──────────────────────────────────┤
+│ 2019-06-21 07:35:50 │ + LSASS Granted Access │ 1     │ Microsoft-Windows-Sy  │ 10       │ 238384    │ alice.insecurebank.l │ TargetProcessId: 520             │
+│                     │ Mask                   │       │ smon                  │          │           │ ocal                 │ TargetImage: C:\Wind             │
+│                     │                        │       │                       │          │           │                      │ ows\system32\lsass.e             │
+│                     │                        │       │                       │          │           │                      │ xe                               │
+│                     │                        │       │                       │          │           │                      │ SourceThreadId: 3808             │
+│                     │                        │       │                       │          │           │                      │ RuleName: ''                     │
+│                     │                        │       │                       │          │           │                      │ GrantedAccess: '0x1f             │
+│                     │                        │       │                       │          │           │                      │ ffff'                            │
+│                     │                        │       │                       │          │           │                      │ SourceProcessGUID: E             │
+│                     │                        │       │                       │          │           │                      │ CAD0485-88D6-5D0C-00             │
+│                     │                        │       │                       │          │           │                      │ 00-001007AA1D00                  │
+│                     │                        │       │                       │          │           │                      │ SourceProcessId: 156             │
+│                     │                        │       │                       │          │           │                      │ 8                                │
+│                     │                        │       │                       │          │           │                      │ TargetProcessGUID: E             │
+│                     │                        │       │                       │          │           │                      │ CAD0485-822F-5D0C-00             │
+│                     │                        │       │                       │          │           │                      │ 00-0010635E0000                  │
+│                     │                        │       │                       │          │           │                      │ CallTrace: C:\Window             │
+│                     │                        │       │                       │          │           │                      │ s\SYSTEM32\ntdll.dll             │
+│                     │                        │       │                       │          │           │                      │ +909ba|C:\Windows\sy             │
+│                     │                        │       │                       │          │           │                      │ stem32\ctiuser.dll+1             │
+│                     │                        │       │                       │          │           │                      │ b132|C:\Windows\SYST             │
+│                     │                        │       │                       │          │           │                      │ EM32\ntdll.dll+80498             │
+│                     │                        │       │                       │          │           │                      │ |C:\Windows\system32             │
+│                     │                        │       │                       │          │           │                      │ \KERNEL32.DLL+1e1d4|             │
+│                     │                        │       │                       │          │           │                      │ C:\Windows\system32\             │
+│                     │                        │       │                       │          │           │                      │ KERNEL32.DLL+1dc17|C             │
+│                     │                        │       │                       │          │           │                      │ :\Windows\system32\c             │
+│                     │                        │       │                       │          │           │                      │ tiuser.dll+141be|C:\             │
+│                     │                        │       │                       │          │           │                      │ Windows\SYSTEM32\dbg             │
+│                     │                        │       │                       │          │           │                      │ help.dll+1244d8|C:\W             │
+│                     │                        │       │                       │          │           │                      │ indows\SYSTEM32\dbgh             │
+│                     │                        │       │                       │          │           │                      │ elp.dll+11ebd5|C:\Wi             │
+│                     │                        │       │                       │          │           │                      │ ndows\SYSTEM32\dbghe             │
+│                     │                        │       │                       │          │           │                      │ lp.dll+118402|C:\Win             │
+│                     │                        │       │                       │          │           │                      │ dows\SYSTEM32\dbghel             │
+│                     │                        │       │                       │          │           │                      │ p.dll+1137e2|C:\Wind             │
+│                     │                        │       │                       │          │           │                      │ ows\SYSTEM32\dbghelp             │
+│                     │                        │       │                       │          │           │                      │ .dll+113c84|C:\Windo             │
+│                     │                        │       │                       │          │           │                      │ ws\system32\ctiuser.             │
+│                     │                        │       │                       │          │           │                      │ dll+22232|C:\...                 │
+│                     │                        │       │                       │          │           │                      │ (use --full to show all content) │
+│                     │                        │       │                       │          │           │                      │ UtcTime: 2019-06-21              │
+│                     │                        │       │                       │          │           │                      │ 07:35:50.730                     │
+│                     │                        │       │                       │          │           │                      │ SourceImage: C:\Wind             │
+│                     │                        │       │                       │          │           │                      │ ows\system32\rundll3             │
+│                     │                        │       │                       │          │           │                      │ 2.exe                            │
+└─────────────────────┴────────────────────────┴───────┴───────────────────────┴──────────┴───────────┴──────────────────────┴──────────────────────────────────┘
+
+[+] 4 Detections found on 4 documents

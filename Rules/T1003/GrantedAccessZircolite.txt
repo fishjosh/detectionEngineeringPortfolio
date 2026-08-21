@@ -1,0 +1,60 @@
+
+███████╗██╗██████╗  ██████╗ ██████╗ ██╗     ██╗████████╗███████╗
+╚══███╔╝██║██╔══██╗██╔════╝██╔═══██╗██║     ██║╚══██╔══╝██╔════╝
+  ███╔╝ ██║██████╔╝██║     ██║   ██║██║     ██║   ██║   █████╗
+ ███╔╝  ██║██╔══██╗██║     ██║   ██║██║     ██║   ██║   ██╔══╝
+███████╗██║██║  ██║╚██████╗╚██████╔╝███████╗██║   ██║   ███████╗
+╚══════╝╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝   ╚═╝   ╚══════╝
+-= Standalone Sigma Detection tool for EVTX/Auditd/Sysmon Linux =-
+                              v3.8.1
+
+[+] Loading ruleset(s)
+    [>] Converting Native Sigma to Zircolite ruleset : proc_access_win_lsass_grantedaccess.yml
+[✓] Converted 1 rules
+[+] 1 rules loaded
+[+] Event filter enabled: 1 eventIDs
+[+] Checking prerequisites
+───────────────────────────────────────────────────── Processing ──────────────────────────────────────────────────────
+[+] Auto-detected log type: windows_evtx (evtx) - confidence: high
+[+] Auto-detected timestamp field: SystemTime
+[+] Analyzing workload...
+    [>] Files           1 (68.0 KB total, avg 68.0 KB)
+    [>] System          3.2 GB RAM available, 8 CPUs
+    [>] DB Mode         PER-FILE
+                        Single file detected
+    [>] Parallel        disabled - Single file - parallel not applicable
+
+[+] Processing 1 file(s) separately in streaming mode
+[+] Processing file: sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx
+[+] Processing events (streaming mode)
+[+] Creating dynamic model
+[+] Creating indexes
+[+] Total events processed: 8 (7 filtered out by log source)
+[+] Executing ruleset for sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx - 1 rules
+
+                             sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx
+┌────────────────┬────────────────────────────────────────────────────────────────┬──────────┬────────────────────────┐
+│    Severity    │ Rule                                                           │   Events │ ATT&CK                 │
+├────────────────┼────────────────────────────────────────────────────────────────┼──────────┼────────────────────────┤
+│      HIGH      │ LSASS Granted Access Mask                                      │        4 │ T1003.001              │
+└────────────────┴────────────────────────────────────────────────────────────────┴──────────┴────────────────────────┘
+
+─────────────────────────────────────────────────────── Results ───────────────────────────────────────────────────────
+
+┌──────────────────────────────────────────────────── ✨ Summary ─────────────────────────────────────────────────────┐
+│                                                                                                                     │
+│    ⏱  Duration         0.8s                                                                                         │
+│                            ├─ Processing  ██████████████░░  0.7s (91%)                                              │
+│    📁 Files            1                                                                                            │
+│    📊 Events           8 (7 filtered out — 53.3% match rate)                                                        │
+│    ⚡ Throughput       10 events/s                                                                                  │
+│    💾 Peak Memory      67.29 MB                                                                                     │
+│    🎯 Detections       4 HIGH                                                                                       │
+│    📏 Coverage         1/1 rules matched (100.0%)  ████████████████                                                 │
+│    🔍 Matched          4 events across 1 rules                                                                      │
+│    📋 Top Hits         HIGH LSASS Granted Access Mask (4)                                                           │
+│                                                                                                                     │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────── 🗺  ATT&CK Coverage ─────────────────────────────────────────────────┐
+│  Credential Access       ████████████████      1 technique (4 hits)                                                 │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
