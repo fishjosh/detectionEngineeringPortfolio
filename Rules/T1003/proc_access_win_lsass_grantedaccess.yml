@@ -16,7 +16,7 @@ logsource:
   category: process_access
 detection:
   Selection1:
-    eventID: 10
+    EventID: 10
     TargetImage|endswith: '\lsass.exe'
     #I recognize this a a specific set of exact mask values instead of bit masking or substring matching. Will look into that for version 2.
     GrantedAccess:
@@ -25,7 +25,7 @@ detection:
       - 0x1410
       - 0x120089
   Selection2:
-    eventID: 10
+    EventID: 10
     TargetImage|endswith: '\lsass.exe'
     SourceImage|endswith:
       - \procdump.exe
